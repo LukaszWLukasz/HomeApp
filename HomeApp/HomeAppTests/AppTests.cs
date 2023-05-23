@@ -7,7 +7,7 @@ namespace HomeAppTests
         [Test]
         public void TestAddPointsFamilyInMemory_Sum_Count_Max_Min()
         {
-            var member = new FamilyInMemory("£ukasz", "Walczak");
+            var member = new FamilyMemberInMemory("£ukasz", "Walczak");
 
             member.AddPoint(5);
             member.AddPoint(4.5);

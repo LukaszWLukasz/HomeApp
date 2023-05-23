@@ -39,10 +39,12 @@ while (!toClose)
             break;
     }
 }
+
 static void MemberPointAdded(object sender, EventArgs args)
 {
     Console.WriteLine("(Point Added)");
 }
+
 static void AddPointToMemory()
 {
     Console.WriteLine("Please, enter the member name of family: ");
@@ -52,12 +54,11 @@ static void AddPointToMemory()
 
     if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
     {
-        var member = new FamilyInMemory(name, surname);
+        var member = new FamilyMemberInMemory(name, surname);
         member.PointAdded += MemberPointAdded;
         AddPoints(member);
         member.GetStatisticsApp();
         member.ShowStatisticsApp();
-
     }
     else
     {
@@ -74,7 +75,7 @@ static void AddPointToFile()
 
     if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
     {
-        var member = new FamilyInFile(name, surname);
+        var member = new FamilyMemberInFile(name, surname);
         member.PointAdded += MemberPointAdded;
         AddPoints(member);
         member.GetStatisticsApp();
@@ -85,7 +86,8 @@ static void AddPointToFile()
         Console.WriteLine("You have to enter name and surname member of family");
     }
 }
-static void AddPoints(IFamily member)
+
+static void AddPoints(IFamilyMember member)
 {
     while (true)
     {
